@@ -1,26 +1,30 @@
 ﻿using System;
 
-namespace CourseApp
+namespace Lab
 {
-    public class Program
+    internal class Program
     {
-        public static double MyFunction(double a, double b, double x)
-        {
-            var y = (a * Math.Pow(x, 2)) + (b * x);
-            return y;
-        }
-
         public static double[] TaskA(double a, double b, double xn, double xk, double dx)
         {
-            return new double[0];
+            int j = 0;
+            var y = new double[5];
+
+            for (var i = xn; i < xk; i += dx)
+            {
+                y[j] = Math.Pow(i * (a + b), 2.5) / (1 + Math.Log10(i * (a + b)));
+                j++;
+            }
+
+            return y;
         }
 
         public static double[] TaskB(double a, double b, double[] x)
         {
             var y = new double[x.Length];
-            for (var i = 0; i < x.Length; i++)
+
+            for (var i = 0; i < y.Length; i++)
             {
-                y[i] = MyFunction(a, b, x[i]);
+                y[i] = Math.Pow(i * (a + b), 2.5) / (1 + Math.Log10(i * (a + b)));
             }
 
             return y;
@@ -28,19 +32,30 @@ namespace CourseApp
 
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            const double a = 2.2;
-            const double b = 3.8;
-            var resSingle = MyFunction(a, b, 4);
-            Console.WriteLine(resSingle);
-            var x = new double[] { 1, 2, 3, 4, 5 };
-            var taskBRes = TaskB(a, b, x);
-            foreach (var item in taskBRes)
+            const double a = 2.5;
+            const double b = 4.6;
+            const double xn = 1.1;
+            const double xk = 3.6;
+            const double dx = 0.5;
+            int count = 1;
+            var kakao = TaskA(a, b, xn, xk, dx);
+            Console.WriteLine("Task A:");
+            foreach (var i in kakao)
             {
-                Console.WriteLine($"y = {item}");
+                Console.WriteLine($"y{count++} = {i}");
             }
 
-            Console.ReadLine();
+            Console.WriteLine();
+            var x = new double[] { 1.2, 1.28, 1.36, 1.46, 2.35 };
+            var slivki = TaskB(a, b, x);
+            count = 1;
+            Console.WriteLine("Task B:");
+            foreach (var i in slivki)
+            {
+                Console.WriteLine($"y{count++} = {i}");
+            }
+
+            Console.ReadKey();
         }
     }
 }
