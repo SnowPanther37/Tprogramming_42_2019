@@ -1,18 +1,23 @@
 ﻿using System;
 
-namespace Lab
+namespace CourseApp
 {
-    internal class Program
+    public class Program
     {
+        public static double MyFunction(double a, double b,  double x)
+        {
+            var y = Math.Pow(a + (b * x), 2.5) / (1 + Math.Log10(a + (b * x)));
+            return y;
+        }
+
         public static double[] TaskA(double a, double b, double xn, double xk, double dx)
         {
-            int j = 0;
-            var y = new double[5];
-
-            for (var i = xn; i < xk; i += dx)
+            int i = 0;
+            var y = new double[(int)((xk - xn) / dx)];
+            for (double x = xn; x < xk; x += dx)
             {
-                y[j] = Math.Pow(i * (a + b), 2.5) / (1 + Math.Log10(i * (a + b)));
-                j++;
+                y[i] = MyFunction(a, b, x);
+                i++;
             }
 
             return y;
@@ -21,10 +26,9 @@ namespace Lab
         public static double[] TaskB(double a, double b, double[] x)
         {
             var y = new double[x.Length];
-
-            for (var i = 0; i < y.Length; i++)
+            for (var i = 0; i < x.Length; i++)
             {
-                y[i] = Math.Pow(i * (a + b), 2.5) / (1 + Math.Log10(i * (a + b)));
+                y[i] = MyFunction(a, b,  x[i]);
             }
 
             return y;
@@ -38,19 +42,17 @@ namespace Lab
             const double xk = 3.6;
             const double dx = 0.5;
             int count = 1;
-            var kakao = TaskA(a, b, xn, xk, dx);
             Console.WriteLine("Task A:");
-            foreach (var i in kakao)
+            foreach (var i in TaskA(a, b, xn, xk, dx))
             {
                 Console.WriteLine($"y{count++} = {i}");
             }
 
             Console.WriteLine();
             var x = new double[] { 1.2, 1.28, 1.36, 1.46, 2.35 };
-            var slivki = TaskB(a, b, x);
             count = 1;
             Console.WriteLine("Task B:");
-            foreach (var i in slivki)
+            foreach (var i in TaskB(a, b, x))
             {
                 Console.WriteLine($"y{count++} = {i}");
             }
