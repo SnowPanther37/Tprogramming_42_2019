@@ -12,13 +12,6 @@ namespace CourseApp.Tests
         }
 
         [Fact]
-        public void TestMyFunctionZeros()
-        {
-            var res = Program.MyFunction(0.0, 0.0, 0.0);
-            Xunit.Assert.Equal(double.NaN, res);
-        }
-
-        [Fact]
         public void TestTaskBNullMass()
         {
             var mass = new double[0];
