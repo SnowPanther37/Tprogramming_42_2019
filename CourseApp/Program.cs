@@ -41,20 +41,20 @@ namespace CourseApp
             const double xn = 1.1;
             const double xk = 3.6;
             const double dx = 0.5;
-            int count = 1;
+            double count = xn;
             Console.WriteLine("Task A:");
             foreach (var i in TaskA(a, b, xn, xk, dx))
             {
-                Console.WriteLine($"y{count++} = {i}");
+                Console.WriteLine($"x = {count += dx}, y = {i}");
             }
 
             Console.WriteLine();
             var x = new double[] { 1.2, 1.28, 1.36, 1.46, 2.35 };
-            count = 1;
+            count = 0;
             Console.WriteLine("Task B:");
             foreach (var i in TaskB(a, b, x))
             {
-                Console.WriteLine($"y{count++} = {i}");
+                Console.WriteLine($"x = {x[(int)count++]}, y = {i}");
             }
 
             Console.ReadKey();

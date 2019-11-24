@@ -12,6 +12,36 @@ namespace CourseApp.Tests
         }
 
         [Fact]
+        public void TestMyFunctionZeros()
+        {
+            var res = Program.MyFunction(0.0, 0.0, 0.0);
+            Xunit.Assert.Equal(0, res);
+        }
+
+        [Theory]
+        [InlineData(2.5, 4.6, 1.1, 3.6, 0.5)]
+        public void TestA_Elements(double a, double b, double xn, double xk, double dx)
+        {
+            var res = Program.TaskA(a, b, xn, xk, dx);
+            int counter = 0;
+            foreach (double elem in res)
+            {
+                    counter++;
+            }
+
+            double massElemExpected = (xk - xn) / dx;
+            Xunit.Assert.Equal(massElemExpected, counter);
+        }
+
+        [Fact]
+        public void TestTaskA()
+        {
+            var res = Program.TaskA(0.0, 0.0, 1.1, 3.6, 0.5);
+            var mass = new double[] { 0, 0, 0, 0, 0 };
+            Assert.Equal(mass, res);
+        }
+
+        [Fact]
         public void TestTaskBNullMass()
         {
             var mass = new double[0];
