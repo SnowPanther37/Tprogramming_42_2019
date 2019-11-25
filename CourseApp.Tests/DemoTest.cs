@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Xunit;
 
 namespace CourseApp.Tests
@@ -20,24 +21,20 @@ namespace CourseApp.Tests
 
         [Theory]
         [InlineData(2.5, 4.6, 1.1, 3.6, 0.5)]
-        public void TestA_Elements(double a, double b, double xn, double xk, double dx)
+        public void TestElementsA(double a, double b, double xn, double xk, double dx)
         {
             var res = Program.TaskA(a, b, xn, xk, dx);
-            int counter = 0;
-            foreach (double elem in res)
-            {
-                    counter++;
-            }
-
+            ArrayList list = new ArrayList() { a, b, xn, xk, dx };
             double massElemExpected = (xk - xn) / dx;
-            Xunit.Assert.Equal(massElemExpected, counter);
+            Xunit.Assert.Equal(massElemExpected, list.Count);
         }
 
-        [Fact]
-        public void TestTaskA()
+        [Theory]
+        [InlineData(2.5, 4.6, 1.1, 3.6, 0.5)]
+        public void TestTaskA(double a, double b, double xn, double xk, double dx)
         {
-            var res = Program.TaskA(0.0, 0.0, 1.1, 3.6, 0.5);
-            var mass = new double[] { 0, 0, 0, 0, 0 };
+            var res = Program.TaskA(a, b, xn, xk, dx);
+            var mass = new double[] { 83.654296330167824, 153.10661053388407, 247.3100209518459, 368.07230864815369, 517.00738615331488 };
             Assert.Equal(mass, res);
         }
 
