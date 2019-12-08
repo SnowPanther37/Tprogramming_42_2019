@@ -1,4 +1,3 @@
-[33m4c722d9[m[33m ([m[1;36mHEAD -> [m[1;32mEvgenij_Somov[m[33m)[m Added Tests
 [33me49fb8c[m[33m ([m[1;31morigin/Evgenij_Somov[m[33m)[m Added Tests
 [33m7fb075e[m Add prog
 [33ma054baa[m Merge branch 'master' into Evgenij_Somov
