@@ -6,8 +6,8 @@ namespace CourseApp.Tests
     public class CruiserTest
     {
         [Theory]
-        [InlineData("Name", 124, 5810.79)]
-        [InlineData("Name1", 227, 9500.4)]
+        [InlineData("Cruiser", 124, 5810.79)]
+        [InlineData("Cruiser", 227, 9500.4)]
         public void TestConstructorThreeParametrs(string name, float length, float displacement)
         {
             var item = new Cruiser(name, length, displacement);
@@ -19,18 +19,18 @@ namespace CourseApp.Tests
         [Fact]
         public void TestConstructorTwoParametrs()
         {
-            var item = new Cruiser("Name", 124.68);
+            var item = new Cruiser("Cruiser", 124.68);
             Assert.Equal(124.68, item.Length);
-            Assert.Equal("Name", item.Name);
+            Assert.Equal("Cruiser", item.Name);
             Assert.Equal(1, item.Displacement);
         }
 
         [Fact]
         public void TestConstructorOneParametrs()
         {
-            var item = new Cruiser("Name2");
+            var item = new Cruiser("Cruiser");
             Assert.Equal(1, item.Length);
-            Assert.Equal("Name2", item.Name);
+            Assert.Equal("Cruiser", item.Name);
             Assert.Equal(1, item.Displacement);
         }
 
@@ -39,7 +39,7 @@ namespace CourseApp.Tests
         {
             var item = new Cruiser();
             Assert.Equal(1, item.Length);
-            Assert.Equal("Unnamed", item.Name);
+            Assert.Equal("Unnamed Cruiser", item.Name);
             Assert.Equal(1, item.Displacement);
         }
 

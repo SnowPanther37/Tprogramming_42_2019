@@ -7,7 +7,7 @@ namespace CourseApp
     public class Cruiser : Ship
     {
         public Cruiser()
-        : base("Unnamed")
+        : base("Unnamed Cruiser")
         {
         }
 
@@ -17,11 +17,12 @@ namespace CourseApp
         }
 
         public Cruiser(string name, double length)
-        : this(name, length, 1)
+        : base(name, length, 1)
         {
         }
 
         public Cruiser(string name, double length, double displacement)
+        : base(name, length, displacement)
         {
             Name = name;
             Length = length;

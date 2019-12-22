@@ -6,8 +6,8 @@ namespace CourseApp.Tests
     public class CorvetteTest
     {
         [Theory]
-        [InlineData("Name", 115, 900.79)]
-        [InlineData("Name1", 96, 1440.9)]
+        [InlineData("Corvette", 115, 900.79)]
+        [InlineData("Corvette", 96, 1440.9)]
         public void TestConstructorThreeParametrs(string name, float length, float displacement)
         {
             var item = new Corvette(name, length, displacement);
@@ -19,18 +19,18 @@ namespace CourseApp.Tests
         [Fact]
         public void TestConstructorTwoParametrs()
         {
-            var item = new Corvette("Name", 114.68);
+            var item = new Corvette("Corvette", 114.68);
             Assert.Equal(114.68, item.Length);
-            Assert.Equal("Name", item.Name);
+            Assert.Equal("Corvette", item.Name);
             Assert.Equal(1, item.Displacement);
         }
 
         [Fact]
         public void TestConstructorOneParametrs()
         {
-            var item = new Corvette("Name2");
+            var item = new Corvette("Corvette");
             Assert.Equal(1, item.Length);
-            Assert.Equal("Name2", item.Name);
+            Assert.Equal("Corvette", item.Name);
             Assert.Equal(1, item.Displacement);
         }
 
@@ -39,7 +39,7 @@ namespace CourseApp.Tests
         {
             var item = new Corvette();
             Assert.Equal(1, item.Length);
-            Assert.Equal("Unnamed", item.Name);
+            Assert.Equal("Unnamed Corvette", item.Name);
             Assert.Equal(1, item.Displacement);
         }
 
